@@ -6,8 +6,8 @@ export class News extends Component {
     articles = [
         {
             "source": { "id": "cnn", "name": "CNN" },
-            "author": "Chloe Melas and Sandra Gonzalez, CNN",
-            "title": "Golden Globe winners list 2022 - CNN",
+            "author": null,
+            "title": null,
             "description": "On a typical year, the Golden Globe Awards serve as the gold standard for tipsy fun. But this is not a typical year for Hollywood's quirkiest award show.",
             "url": "https://www.cnn.com/2022/01/09/entertainment/golden-globes-winners-2022/index.html",
             "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/211202190134-west-side-story-super-tease.jpg",
@@ -55,17 +55,29 @@ export class News extends Component {
         }
     }
 
+    async componentDidMount() {
+        console.log("cdm");
+        let url = "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=c26dc6dd6f754cbeac24769937a3d102";
+        let data = await fetch(url);
+        let parsedData = await data.json()
+        console.log(parsedData);
+        this.setState({ articles: parsedData.articles })
+
+    }
+
     render() {
+        console.log("render");
         return (
+
             <div className='container my-3 ' >
                 <h2>NewsMonkey Top Headline</h2>
                 <div className="row ">
-                {this.state.articles.map((element) => {
-                    console.log(element);
-                    return <div className="col-md-4"  key={element.url}>
-                        <NewsItem title={element.title.slice(0, 45)} description={element.description.slice(0, 88)} NewsUrl={element.url} imageUrl={element.urlToImage} />
-                    </div>
-                })}
+                    {this.state.articles.map((element) => {
+                        console.log(element);
+                        return <div className="col-md-4" key={element.url}>
+                            <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 88) : ""} NewsUrl={element.url} imageUrl={element.urlToImage} />
+                        </div>
+                    })}
                 </div>
             </div>
         )
