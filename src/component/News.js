@@ -73,12 +73,12 @@ export class News extends Component {
 
 
         return (<div className='container my-3 ' >
-            <h1 className='text-center' >NewsMonkey Top Headline</h1>
+            <h1 className='text-center' >NewsMonkey Top Headline from {this.props.category} </h1>
             {this.state.loading && < Spinner />}
             <div className="row ">
                 {!this.loading && this.state.articles.map((element) => {
                     return <div className="col-md-4" key={element.url}>
-                        <NewsItem loading={this.state.loading} title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 88) : ""} NewsUrl={element.url} imageUrl={element.urlToImage} />
+                        <NewsItem sources={element.source.name} author={!element.author? "Unknown":element.author} date={element.publishedAt} loading={this.state.loading} title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 88) : ""} NewsUrl={element.url} imageUrl={element.urlToImage} />
                     </div>
                 })}
             </div>

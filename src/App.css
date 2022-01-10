@@ -14,3 +14,7 @@
 body{
   transition: transform 1s ease-out;
 }
+
+.rounded-pill{
+  left:"90% !important"
+}
