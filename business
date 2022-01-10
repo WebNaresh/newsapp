@@ -1,0 +1,8 @@
+<Route path="/"> <News category={"general"} apiKey={this.state.apiKey} /></Route>
+<Route path="/"><News category={"business"} apiKey={this.state.apiKey} /></Route>
+<Route path="/"><News category={"science"} apiKey={this.state.apiKey} /></Route>
+<Route path="/"><News category={"science"} apiKey={this.state.apiKey} /></Route>
+<Route path="/"><News category={"science"} apiKey={this.state.apiKey} /></Route>
+<Route path="/"><News category={"science"} apiKey={this.state.apiKey} /></Route>
+<Route path="/"><News category={"science"} apiKey={this.state.apiKey} /></Route>
+<Route path="/"><News category={"science"} apiKey={this.state.apiKey} /></Route>
