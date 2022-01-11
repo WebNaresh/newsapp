@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
+import { Link } from 'react-router-dom';
 import Spinner from './Spinner';
 import PropTypes from 'prop-types'
 
@@ -34,6 +35,7 @@ export class News extends Component {
         this.setState({ loading: true });
         let data = await fetch(url);
         let parsedData = await data.json()
+        document.title=`${this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)} - NewsMonkey`
         this.setState({
             articles: parsedData.articles,
             totalResults: parsedData.totalResults,
@@ -55,8 +57,12 @@ export class News extends Component {
 
 
         return (<div className='container my-3 ' >
-            <h1 className='text-center' >NewsMonkey Top Headline from {this.props.category} </h1>
+            <h1 className='text-center' >NewsMonkey Top {this.props.category}  Headline</h1>
             {this.state.loading && < Spinner />}
+
+            <div>
+                    {this.props.notFound&&<Link className="d-flex justify-content-center btn btn-primary m-3 " to={"/"}>Home</Link>}
+                </div>
             <div className="row ">
                 {!this.loading && this.state.articles.map((element) => {
                     return <div className="col-md-4" key={element.url}>
