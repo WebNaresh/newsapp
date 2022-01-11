@@ -5,7 +5,7 @@ export class Spinner extends Component {
         return (
             <div className="d-flex justify-content-center mt-5">
                 <div className="spinner-border" role="status">
-                    <span className="sr-only"></span>
+                    <span className="my-3 sr-only"></span>
                 </div>
             </div>
         )

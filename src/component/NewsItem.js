@@ -4,11 +4,11 @@ import React, { Component } from 'react'
 export class NewsItem extends Component {
 
     render() {
-        let { title, description, imageUrl, NewsUrl, loading, date, author ,sources} = this.props;
+        let { title, description, imageUrl, NewsUrl,  date, author ,sources} = this.props;
         return (
             <div className='my-3' >
                 
-                {!loading && <div className="card widht" style={{ margin: "0 2px" }}>
+                {<div className="card widht" style={{ margin: "0 2px" }}>
                     <div>
                         <img src={!imageUrl ? "https://gumlet.assettype.com/bloombergquint%2F2021-11%2Fc7d8b0ac-d9d8-4647-9a61-357e53e3347a%2F374659277.jpg?rect=0%2C118%2C3998%2C2099&w=1200&auto=format%2Ccompress&ogImage=true" : imageUrl} style={{ height: "160px", }} className="widht card-img-top" alt="..."
                             onError={({ currentTarget }) => {
