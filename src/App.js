@@ -7,7 +7,6 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link
 } from "react-router-dom";
 
 export default class App extends Component {
@@ -15,7 +14,8 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      category: "science"
+      category: "science",
+      apiKey: "5b6c0846c1d2425a909b8d6fdfbefbb4"
     }
   }
 
@@ -25,13 +25,13 @@ export default class App extends Component {
         <BrowserRouter>
           <Navbar></Navbar>
           <Routes>
-            <Route path="/" element={<News key={"general"} category={"general"}  />} />
-            <Route  path="/business" element={<News key={"business"} category={"business"}  />} />
-            <Route  path="/entertainment" element={<News key={"entertainment"} category={"entertainment"}  />} />
-            <Route  path="/health" element={<News key={"health"} category={"health"}  />} />
-            <Route  path="/science" element={<News key={"science"} category={"science"}  />} />
-            <Route  path="/sports" element={<News key={"sports"} category={"sports"}  />} />
-            <Route  path="/technology" element={<News key={"technology"} category={"technology"}  />} />
+            <Route path="/" element={<News apiKey={this.state.apiKey} key={"general"} category={"general"}  />} />
+            <Route  path="/business" element={<News apiKey={this.state.apiKey} key={"business"} category={"business"}  />} />
+            <Route  path="/entertainment" element={<News apiKey={this.state.apiKey} key={"entertainment"} category={"entertainment"}  />} />
+            <Route  path="/health" element={<News apiKey={this.state.apiKey} key={"health"} category={"health"}  />} />
+            <Route  path="/science" element={<News apiKey={this.state.apiKey} key={"science"} category={"science"}  />} />
+            <Route  path="/sports" element={<News apiKey={this.state.apiKey} key={"sports"} category={"sports"}  />} />
+            <Route  path="/technology" element={<News apiKey={this.state.apiKey} key={"technology"} category={"technology"}  />} />
             
           </Routes>
         </BrowserRouter>
